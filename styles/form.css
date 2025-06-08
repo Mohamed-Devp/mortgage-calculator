@@ -1,0 +1,257 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    height: 100%;
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form .title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--slate-900);
+}
+
+.clear {
+    position: relative;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--slate-700);
+    cursor: pointer;
+    transition: color .2s ease-in;
+}
+
+.clear::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 100%;
+    width: 100%;
+    height: 1px;
+    background-color: var(--slate-700);
+}
+
+.clear:hover {
+    color: var(--slate-900);
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--slate-700);
+}
+
+.input-field {
+    display: flex;
+    border-radius: 4px;
+    border: 1px solid var(--slate-700);
+    overflow: hidden;
+}
+
+.input-field:has(input:focus) {
+    border: 1px solid var(--slate-900);
+}
+
+.valid {
+    border: 1px solid var(--lime);
+}
+
+.invalid {
+    border: 1px solid red;
+}
+
+input {
+    width: calc(100%  - 40px);
+    padding: 12px;
+    font-family: var(--primary-font);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--slate-900);
+}
+
+.valid .unit {
+    color: var(--slate-900);
+    background-color: var(--lime);
+}
+
+.invalid .unit {
+    color: white;
+    background-color: tomato;
+}
+
+.unit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--slate-700);
+    background-color: var(--slate-100);
+    transition: background-color .1s ease-in;
+}
+
+.error-message {
+    display: none;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: red;
+}
+
+.mortgage-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+.mortgage-info > div {
+    width: 45%;
+}
+
+.term .unit{
+    width: 60px;
+}
+
+.term input {
+    width: calc(100% - 60px);
+}
+
+.types {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.types label {
+    margin-bottom: 2px;
+}
+
+.types .error-message {
+    margin-top: 2px;
+}
+
+.type {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid var(--slate-900);
+    transition: all .15s ease-in;
+}
+
+.checked {
+    border: 1px solid var(--lime);
+    background-color: var(--light-yellow);
+}
+
+.checkbox {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    margin-right: 18px;
+    border-radius: 100px;
+    border: 1px solid var(--slate-900);
+    cursor: pointer;
+    transition: transform .1s ease-in;
+}
+
+.checked .checkbox {
+    border: 2px solid var(--lime);
+}
+
+.checked .checkbox::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100px;
+    background-color: var(--lime);
+}
+
+.checkbox:active {
+    transform: scale(.8);
+}
+
+.type p {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--slate-900);
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    height: 45px;
+    border-radius: 100px;
+    background-color: var(--lime);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in;
+}
+
+button:hover {
+    background-color: hsl(61, 70%, 82%);
+}
+
+button img {
+    width: 20px;
+    height: auto;
+    margin: 0 12px;
+}
+
+button p {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--slate-900);
+}
+
+/* Media queries */
+@media screen and (max-width: 950px) {
+    .form {
+        width: 100%;
+        height: 55%;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .form {
+        padding: 20px;
+    }
+
+    .error .form {
+        height: 60%;
+    }
+
+    .header {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .mortgage-info {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .mortgage-info > div {
+        width: 100%;
+    }
+}
